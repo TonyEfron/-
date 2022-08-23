@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/demo.css}">
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/font-awesome.css}">
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/sky-forms.css}">
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/sky-forms-orange.css}">
+
+<script type="text/javascript" th:src="@{~/adminbackparceladd/js/jquery.min.js}"></script>
+
+</head>
+<body class="bg-purple">
+<div class="body">			
+
+	<!-- Orange color scheme -->
+	<form th:action="@{'/admin/addcom/'+${loginAdmin.adid}}" enctype="multipart/form-data" method="post" class="sky-form">
+		<header>登记企业</header>
+		
+		<fieldset>
+			<section>
+				<label class="label">企业名称</label>
+				<label class="input">
+					<input type="text" required name="comname">
+				</label>
+			</section>
+
+
+			<section>
+				<label class="label">企业编号</label>
+				<label class="input">
+					<input type="number" min="0" required name="comid">
+				</label>
+			</section>
+
+			<section>
+				<label class="label">企业电话</label>
+				<label class="input">
+					<input type="number" min="0" required name="comphone">
+				</label>
+			</section>
+
+			<section>
+				<label class="label">企业邮箱</label>
+				<label class="input">
+					<input type="text" required name="comemail">
+				</label>
+			</section>
+		</fieldset>
+
+
+		<footer>
+			<button type="submit" class="button">Submit</button>
+			<button type="button" class="button button-secondary" onclick="window.history.back();">Back</button>
+		</footer>
+	</form>
+</div>
+<input id="checkid" th:value="${idexist}" style="visibility: hidden">
+
+</body>
+</html>
+<script>
+	var id = document.getElementById("checkid").value
+	setTimeout(()=>{
+		if(id==1){
+			confirm("该编号已被使用，请检查您的编号")
+		}
+	},200)
+</script>

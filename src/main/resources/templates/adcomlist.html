@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title></title>
+
+<link rel="stylesheet" type="text/css" th:href="@{~/stuback/css/nav.css}">
+<link rel="stylesheet" type="text/css" th:href="@{~/stuback/font/iconfont.css}">
+
+<script type="text/javascript" th:src="@{~/stuback/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{~/stuback/js/nav.js}"></script>
+
+	<link rel='stylesheet' type="text/css" th:href='@{~/adminbacklist/css/bootstrap.min.css}'>
+	<link rel='stylesheet' type="text/css" th:href='@{~/adminbacklist/css/all.min.css}'>
+	<link rel="stylesheet" type="text/css" th:href="@{~/adminbacklist/css/style.css}">
+
+	<style>
+		a{
+			text-decoration: none;
+		}
+	</style>
+
+</head>
+<body style="overflow-y: hidden">
+
+<div class="nav">
+	<div class="nav-top">
+		<div id="mini" style="border-bottom:1px solid rgba(255,255,255,.1)"><img th:src="@{~/stuback/images/mini.png}" ></div>
+	</div>
+	<ul>
+		<li class="nav-item">
+			<a href="javascript:;"><i class="my-icon nav-icon icon_2"></i><span>包裹管理</span><i class="my-icon nav-more"></i></a>
+			<ul>
+				<li><a th:href="@{'/admin/Index/'+${loginAdmin.adid}}"><span>快递管理</span></a></li>
+				<li><a th:href="@{'/admin/send/'+${loginAdmin.adid}}"><span>寄件管理</span></a></li>
+			</ul>
+		</li>
+		<li class="nav-item">
+			<a href="javascript:;"><i class="my-icon nav-icon icon_3"></i><span>账号管理</span><i class="my-icon nav-more"></i></a>
+			<ul>
+				<li><a th:href="@{'/admin/stu/'+${loginAdmin.adid}}"><span>学生账号</span></a></li>
+				<li><a th:href="@{'/admin/com/'+${loginAdmin.adid}}"><span>快递账号</span></a></li>
+			</ul>
+		</li>
+		<li class="nav-item">
+			<a href="javascript:;"><i class="my-icon nav-icon icon_1"></i><span>我的账号</span><i class="my-icon nav-more"></i></a>
+			<ul>
+				<li><a th:href="@{/index}"><span>退出系统</span></a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div style="float:left;width: 1640px;" th:insert="admin/comlist::list"></div>
+
+</body>
+</html>

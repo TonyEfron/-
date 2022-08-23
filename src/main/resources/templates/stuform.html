@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title></title>
+
+<link rel="stylesheet" type="text/css" th:href="@{~/stuback/css/nav.css}">
+<link rel="stylesheet" type="text/css" th:href="@{~/stuback/font/iconfont.css}">
+
+<script type="text/javascript" th:src="@{~/stuback/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{~/stuback/js/nav.js}"></script>
+
+	<link rel="stylesheet" th:href="@{~/stubackform/css/demo.css}">
+	<link rel="stylesheet" th:href="@{~/stubackform/css/sky-forms.css}">
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" th:href="@{~/stubackform/css/sky-forms-ie8.css}">
+	<![endif]-->
+
+	<script th:src="@{~/stubackform/js/jquery-1.9.1.min.js}"></script>
+	<script th:src="@{~/stubackform/js/jquery.validate.min.js}"></script>
+	<!--[if lt IE 10]>
+	<script th:src="@{~/stubackform/js/jquery.placeholder.min.js}"></script>
+	<![endif]-->
+	<!--[if lt IE 9]>
+	<script th:src="@{~/stubackform/js/sky-forms-ie8.js}"></script>
+	<![endif]-->
+	<style>
+		a{
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body style="overflow-y: hidden">
+
+<div class="nav">
+	<div class="nav-top">
+		<div id="mini" style="border-bottom:1px solid rgba(255,255,255,.1)"><img th:src="@{~/stuback/images/mini.png}" ></div>
+	</div>
+	<ul>
+		<li class="nav-item">
+			<a href="javascript:;"><i class="my-icon nav-icon icon_2"></i><span>快递管理</span><i class="my-icon nav-more"></i></a>
+			<ul>
+				<li><a th:href="@{'/StuPartCard/'+${loginStudent.stuid}}"><span>待取快递</span></a></li>
+				<li><a th:href="@{'/StuAllParcel/'+${loginStudent.stuid}}"><span>所有快递</span></a></li>
+			</ul>
+		</li>
+		<li class="nav-item">
+			<a href="javascript:;"><i class="my-icon nav-icon icon_3"></i><span>寄件管理</span><i class="my-icon nav-more"></i></a>
+			<ul>
+				<li><a th:href="@{'/StuForm/'+${loginStudent.stuid}}"><span>寄件预约</span></a></li>
+				<li><a th:href="@{'/StuSendCard/'+${loginStudent.stuid}}"><span>所有预约</span></a></li>
+			</ul>
+		</li>
+		<li class="nav-item">
+			<a href="javascript:;"><i class="my-icon nav-icon icon_1"></i><span>我的账号</span><i class="my-icon nav-more"></i></a>
+			<ul>
+				<li><a th:href="@{'/StuUserCard/'+${loginStudent.stuid}}"><span>账号信息</span></a></li>
+				<li><a th:href="@{/index}"><span>退出系统</span></a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<div style="float:left;width: 1640px;" th:insert="stupanel/form::stuform"></div>
+
+</body>
+</html>

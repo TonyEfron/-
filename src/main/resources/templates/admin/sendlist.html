@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+
+	<link rel='stylesheet' type="text/css" th:href='@{~/adminbacklist/css/bootstrap.min.css}'>
+	<link rel='stylesheet' type="text/css" th:href='@{~/adminbacklist/css/all.min.css}'>
+	<link rel="stylesheet" type="text/css" th:href="@{~/adminbacklist/css/style.css}">
+
+
+
+</head>
+
+<body>
+
+<section th:fragment="list" class="pt-80 pb-70" style="overflow-y: scroll">
+	<div class="text-center mb-60 position-relative">
+		<h5 style="font-size: 38px" class="font__family-montserrat font__weight-light text-uppercase font__size-21 text-blue brk-library-rendered" data-brk-library="component__title">寄件管理</h5>
+
+	
+		<hr class="divider wow zoomIn brk-library-rendered" data-brk-library="component__title" style="visibility: visible; animation-name: zoomIn;">
+	</div>
+	<div class="container">
+		<div class="panel__wrapper-icon mb-100 brk-library-rendered" data-brk-library="component__panel">
+			<div class="panel__head all-light">
+				<h4 class="font__family-montserrat font__weight-medium font__size-21"><a class="parceladdcss" th:href="@{'/admin/sendadd/'+${loginAdmin.adid}}">Add SendParcel</a></h4>
+				<p class="font__family-open-sans font__size-14" style="float: right">
+
+				</p>
+			</div>
+			<ul class="panel__list">
+<!--				<a th:href="@{'/StuPartCard/'+${loginStudent.stuid}}">-->
+				<th:block th:each="parcel : ${AllSparcel}">
+				<a th:href="@{'/admin/detailsendparcel/'+${loginAdmin.adid}+'&'+${parcel.sparcelid}}" >
+					<li>
+						<span class="line"></span>
+						<i class="icon far fa-gem"></i>
+						<p style="font-size: x-large">
+							<span  th:text="'寄件名称：'+${parcel.sparcelname}"></span>
+
+							<th:block th:each="c : ${companies}">
+								<span th:if="${parcel.comid}==${c.comid}" style="float: right" th:text="'快递公司：'+${c.comname}"></span>
+							</th:block>
+
+							<span style="float: right;margin: 0 200px 0 0 " th:text="'所有者：'+${parcel.stuid}"></span>
+
+						</p>
+						<p style="font-size: larger">
+							<span th:text="'寄件单号：'+${parcel.sparcelid}"></span>
+							<span th:if="${parcel.sendsatus}=='0'" style="margin: 0 0 0 100px;color: gray;float: right" th:text="'快递状态：未接受'"></span>
+							<span th:if="${parcel.sendsatus}=='1'" style="margin: 0 0 0 100px;color: blue;float: right" th:text="'快递状态：已接收'"></span>
+							<span th:if="${parcel.sendsatus}=='2'" style="margin: 0 0 0 100px;color: red;float: right" th:text="'快递状态：已送达'"></span>
+							<span style="float: right" th:text="'寄送目的地：'+${parcel.sendaddress}"></span>
+							<a th:href="@{'/admin/deletesendparcel/'+${loginAdmin.adid}+'&'+${parcel.sparcelid}}"  style="margin: 0 80px;color: gray;float: right" th:text="'删除'"></a>
+						</p>
+					</li>
+				</a>
+				</th:block>
+			</ul>
+		</div>
+
+	</div>
+</section>
+
+
+
+</div>
+</body>
+</html>

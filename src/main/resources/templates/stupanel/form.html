@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title></title>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+		
+		<link rel="stylesheet" th:href="@{~/stubackform/css/demo.css}">
+		<link rel="stylesheet" th:href="@{~/stubackform/css/sky-forms.css}">
+		<!--[if lt IE 9]>
+			<link rel="stylesheet" th:href="@{~/stubackform/css/sky-forms-ie8.css}">
+		<![endif]-->
+		
+		<script th:src="@{~/stubackform/js/jquery-1.9.1.min.js}"></script>
+		<script th:src="@{~/stubackform/js/jquery.validate.min.js}"></script>
+		<!--[if lt IE 10]>
+			<script th:src="@{~/stubackform/js/jquery.placeholder.min.js}"></script>
+		<![endif]-->		
+		<!--[if lt IE 9]>
+			<script th:src="@{~/stubackform/js/sky-forms-ie8.js}"></script>
+		<![endif]-->
+
+	</head>
+	
+	<body th:fragment="stuform" class="bg-cyan">
+		<div class="body body-s">		
+			<form th:action="@{'/SendParcelSign/'+${loginStudent.stuid}}" method="post" id="sky-form" class="sky-form">
+				<header>寄件预约</header>
+				
+				<fieldset>					
+					<section>
+						<label class="input">
+							<i class="icon-append icon-user"></i>
+							<input type="text" name="sparcelname" placeholder="寄件名称">
+							<b class="tooltip tooltip-bottom-right">请填写寄件名称</b>
+						</label>
+					</section>
+					
+					<section>
+						<label class="input">
+							<i class="icon-append icon-envelope-alt"></i>
+							<input type="text" name="sendaddress" placeholder="寄送地址">
+							<b class="tooltip tooltip-bottom-right">请填写寄送地址</b>
+						</label>
+					</section>
+					
+					<section>
+						<label class="input">
+							<i class="icon-append icon-lock"></i>
+							<input type="text" name="tip" placeholder="描述" id="password">
+							<b class="tooltip tooltip-bottom-right">请填写简要信息</b>
+						</label>
+					</section>
+
+				</fieldset>
+					
+				<fieldset>
+
+					
+					<section>
+						<label class="select">
+							<select name="comid">
+								<option value="0" selected disabled>选择寄件方</option>
+								<option th:each="company : ${companies}"
+										th:value="${company.comid}"
+										th:text="${company.comname}" value="1">
+								</option>
+							</select>
+							<i></i>
+						</label>
+					</section>
+					
+					<section>
+						<label class="checkbox"><input type="checkbox" name="subscription" id="subscription"><i></i>
+							我已悉知寄件条款</label>
+						<label class="checkbox"><input type="checkbox" name="terms" id="terms"><i></i>
+							我已同意寄件要求</label>
+					</section>
+				</fieldset>
+				<footer>
+					<button type="submit" class="button">Submit</button>
+				</footer>
+			</form>			
+		</div>
+		
+		<script type="text/javascript">
+			$(function()
+			{
+				// Validation		
+				$("#sky-form").validate(
+				{					
+					// Rules for form validation
+					rules:
+					{
+						sparcelname:
+						{
+							required: true
+						},
+						sendaddress:
+						{
+							required: true
+						},
+						tip:
+						{
+							required: true
+						},
+						firstname:
+						{
+							required: true
+						},
+						lastname:
+						{
+							required: true
+						},
+						gender:
+						{
+							required: true
+						},
+						terms:
+						{
+							required: true
+						}
+					},
+					
+					// Messages for form validation
+					messages:
+					{
+						// login:
+						// {
+						// 	required: 'Please enter your login'
+						// },
+						sendaddress:
+						{
+							required: '请填写寄送地址'
+						},
+						tip:
+						{
+							required: '请填写简要信息'
+						},
+						firstname:
+						{
+							required: 'Please select your first name'
+						},
+						lastname:
+						{
+							required: 'Please select your last name'
+						},
+						gender:
+						{
+							required: 'Please select your gender'
+						},
+						terms:
+						{
+							required: 'You must agree with Terms and Conditions'
+						}
+					},					
+					
+					// Do not change code below
+					errorPlacement: function(error, element)
+					{
+						error.insertAfter(element.parent());
+					}
+				});
+			});			
+		</script>
+
+	</body>
+</html>

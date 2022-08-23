@@ -1,0 +1,31 @@
+﻿<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title></title>
+
+<link type="text/css" th:href="@{/admin/css/style.css}" rel="stylesheet" />
+
+</head>
+<body>
+
+<div class="container">
+  <form th:action="@{/admin/index}" method="post">
+    <p>欢迎光临</p>
+    <input name="adid" required type="text" placeholder="ID" ><br>
+    <input name="pwd" required type="password" placeholder="parssword"><br>
+    <button >登录</button>
+
+  </form>
+
+  <div class="drops">
+    <div class="drop drop-1"></div>
+    <div class="drop drop-2"></div>
+    <div class="drop drop-3"></div>
+    <div class="drop drop-4"></div>
+    <div class="drop drop-5"></div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/demo.css}">
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/font-awesome.css}">
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/sky-forms.css}">
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/sky-forms-orange.css}">
+
+<script type="text/javascript" th:src="@{~/adminbackparceladd/js/jquery.min.js}"></script>
+
+</head>
+<body class="bg-cyan">
+<div class="body">			
+
+	<!-- Orange color scheme -->
+	<form th:action="@{'/admin/editsparcel/'+${loginAdmin.adid}+'&'+${parcel.sparcelid}}" enctype="multipart/form-data" method="post" class="sky-form">
+		<header>寄件详情</header>
+		
+		<fieldset>
+			<section>
+				<label class="label">快递名称</label>
+				<label class="input">
+					<input th:value="${parcel.sparcelname}" type="text" required name="sparcelname">
+				</label>
+			</section>
+
+
+			<section>
+				<label class="label">描述</label>
+				<label class="input">
+					<input th:value="${parcel.tip}" type="text" required name="tip">
+				</label>
+			</section>
+
+			<section>
+				<label class="label">寄送地址</label>
+				<label class="input">
+					<input th:value="${parcel.sendaddress}" type="text" required name="sendaddress">
+				</label>
+			</section>
+		</fieldset>
+		
+		<fieldset>
+			<section>
+				<label class="label">快递公司</label>
+				<label class="select">
+					<select name="comid">
+						<option th:each="company : ${companies}"
+								th:value="${company.comid}"
+								th:text="${company.comname}"
+								th:selected="${parcel.comid} eq ${company.comid}">
+						</option>
+					</select>
+					<i></i>
+				</label>
+			</section>
+			<section>
+				<label class="label">寄件人ID</label>
+				<label class="input">
+					<input th:value="${parcel.stuid}" type="text" required name="stuid">
+				</label>
+			</section>
+			<section>
+				<label class="label">快递状态</label>
+				<label class="input">
+					<input th:value="${parcel.sendsatus}" type="number" min="0" max="2" required name="sendsatus">
+				</label>
+<!--				<div class="note"><strong>Note:</strong> works in Chrome, Firefox, Opera and IE10.</div>-->
+			</section>
+
+
+
+		</fieldset>
+		
+
+		<footer>
+			<button type="submit" class="button">Submit</button>
+			<button type="button" class="button button-secondary" onclick="window.history.back();">Back</button>
+		</footer>
+	</form>
+</div>
+
+
+</body>
+</html>

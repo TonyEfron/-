@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/demo.css}">
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/font-awesome.css}">
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/sky-forms.css}">
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/sky-forms-orange.css}">
+
+<script type="text/javascript" th:src="@{~/adminbackparceladd/js/jquery.min.js}"></script>
+
+</head>
+<body class="bg-green">
+<div class="body">			
+
+	<!-- Orange color scheme -->
+	<form th:action="@{'/admin/addstu/'+${loginAdmin.adid}}" enctype="multipart/form-data" method="post" class="sky-form">
+		<header>登记学生</header>
+		
+		<fieldset>
+			<section>
+				<label class="label">学生名称</label>
+				<label class="input">
+					<input type="text" required name="stuname">
+				</label>
+			</section>
+
+
+			<section>
+				<label class="label">学生编号</label>
+				<label class="input">
+					<input type="number" min="0" required name="stuid">
+				</label>
+			</section>
+
+			<section>
+				<label class="label">账号密码</label>
+				<label class="input">
+					<input type="text" required name="stupassword">
+				</label>
+			</section>
+
+			<section>
+				<label class="label">学生邮箱</label>
+				<label class="input">
+					<input type="text" required name="stuemail">
+				</label>
+			</section>
+		</fieldset>
+
+
+		<footer>
+			<button type="submit" class="button">Submit</button>
+			<button type="button" class="button button-secondary" onclick="window.history.back();">Back</button>
+		</footer>
+	</form>
+</div>
+<input id="checkid" th:value="${idexist}" style="visibility: hidden">
+
+</body>
+</html>
+<script>
+	var id = document.getElementById("checkid").value
+	setTimeout(()=>{
+		if(id==1){
+			confirm("该ID已被使用，请检查您的学号")
+		}
+	},200)
+</script>

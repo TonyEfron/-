@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/demo.css}">
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/font-awesome.css}">
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/sky-forms.css}">
+<link rel="stylesheet" type="text/css" th:href="@{~/adminbackparceladd/css/sky-forms-orange.css}">
+
+<script type="text/javascript" th:src="@{~/adminbackparceladd/js/jquery.min.js}"></script>
+
+</head>
+<body class="bg-orange">
+<div class="body">			
+
+	<!-- Orange color scheme -->
+	<form th:action="@{'/admin/addparcel/'+${loginAdmin.adid}}" enctype="multipart/form-data" method="post" class="sky-form">
+		<header>登记快递</header>
+		
+		<fieldset>
+			<section>
+				<label class="label">快递名称</label>
+				<label class="input">
+					<input type="text" required name="parcelname">
+				</label>
+			</section>
+			
+			<section>
+				<label class="label">快递照片</label>
+				<label for="file" class="input input-file">
+					<div class="button">
+						<input name="myfile" type="file" id="file" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" readonly="">
+				</label>
+			</section>
+			<section>
+				<label class="label">快递/寄送人地址</label>
+				<label class="input">
+					<input type="text" required name="address">
+				</label>
+			</section>
+		</fieldset>
+		
+		<fieldset>
+			<section>
+				<label class="label">快递公司</label>
+				<label class="select">
+					<select name="cname">
+						<option th:each="company : ${companies}"
+								th:value="${company.comname}"
+								th:text="${company.comname}" >
+						</option>
+					</select>
+					<i></i>
+				</label>
+			</section>
+			<section>
+				<label class="label">收件人ID</label>
+				<label class="input">
+					<input type="text" required name="stuid">
+				</label>
+			</section>
+			<section>
+				<label class="label">快递状态</label>
+				<label class="input">
+					<input  type="number" min="0" max="2" required name="status">
+				</label>
+<!--				<div class="note"><strong>Note:</strong> works in Chrome, Firefox, Opera and IE10.</div>-->
+			</section>
+			<section>
+				<label class="label">抵达时间</label>
+				<label class="input">
+<!--					th:value="${#dates.format(dlines.courseOfflineTime,'yyyy-MM-dd')}"-->
+					<input type="date" name="arrtime" required>
+				</label>
+			</section>
+
+
+		</fieldset>
+		
+
+		<footer>
+			<button type="submit" class="button">Submit</button>
+			<button type="button" class="button button-secondary" onclick="window.history.back();">Back</button>
+		</footer>
+	</form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+
+<link rel="stylesheet" type="text/css" th:href="@{~/stubacksendcard/css/style.css}">
+
+</head>
+<body>
+
+<div th:fragment="sendcard" class="container" >
+
+	<div class="card" th:each="sendparcel:${sendparcels}">
+		<figure class="card__thumb">
+
+			<th:block th:if="${sendparcel.sendsatus}==0">
+				<img th:src="@{~/stubacksendcard/img/1.jpg}" alt="Picture by Kyle Cottrell" class="card__image">
+			</th:block>
+			<th:block th:if="${sendparcel.sendsatus}==1">
+				<img th:src="@{~/stubacksendcard/img/2.jpg}" alt="Picture by Kyle Cottrell" class="card__image">
+			</th:block>
+			<th:block th:if="${sendparcel.sendsatus}==2">
+				<img th:src="@{~/stubacksendcard/img/3.jpg}" alt="Picture by Kyle Cottrell" class="card__image">
+			</th:block>
+
+
+			<figcaption class="card__caption">
+				<h2 class="card__title" th:text="'寄送物品：'+${sendparcel.sparcelname}"></h2>
+				<p class="card__snippet"th:text="'寄送地址：'+${sendparcel.sendaddress}"></p>
+				<p class="card__snippet"th:text="'备注：'+${sendparcel.tip}"></p>
+				<p class="card__snippet"th:text="'寄送编号：'+${sendparcel.sparcelid}"></p>
+				<th:block th:if="${sendparcel.sendsatus}==0">
+					<a href="" class="card__button" th:text="'未接收'"></a>
+				</th:block>
+				<th:block th:if="${sendparcel.sendsatus}==1">
+					<a href="" class="card__button" th:text="'已接受'"></a>
+				</th:block>
+				<th:block th:if="${sendparcel.sendsatus}==2">
+					<a href="" class="card__button" th:text="'已送达'"></a>
+				</th:block>
+
+			</figcaption>
+		</figure>
+	</div>
+
+</div>
+
+</body>
+</html>

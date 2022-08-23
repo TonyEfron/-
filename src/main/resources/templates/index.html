@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+
+<link rel="stylesheet" type="text/css" th:href="@{indexPage/css/nav.css}">
+<link rel="stylesheet" type="text/css" th:href="@{indexPage/css/slider.css}">
+<link rel="stylesheet" type="text/css" th:href="@{indexPage/css/swiper.min.css}">
+<link rel="stylesheet" type="text/css" th:href="@{indexPage/css/animate.min.css}">
+
+</head>
+<body>
+
+<!--导航开始-->
+<div class="nav">
+	<div id="menu_hover_bg" style="height: 0px; overflow: hidden;"></div>
+	<div class="w1200">
+		<div class="logo">
+			<a href=""><img th:src="@{indexPage/picture/logo.png}"></a>
+		</div>
+
+		<div class="login">
+			<a th:href="@{/login}">登陆</a>
+			<a th:href="@{/admin}">管理员后台</a>
+		</div>
+	</div>
+</div>
+<!--导航结束-->
+<!--轮播开始-->
+<div class="swiper-banner swiper-container">
+	<div class="swiper-wrapper">
+		<a href="" class="swiper-slide slide3">
+			<div class="w1200">
+				<div class="ani pa sl-left" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s">
+					<div class="pa t1">
+						广软快递中心
+					</div>
+					<div class="pa t2">
+						帮助广软广大师生解决收发快递难题
+					</div>
+					<div class="pa t3">
+						查看快件状态，预约寄件，问题反馈
+					</div>
+					<div class="pa btn">
+						立即免费开通
+					</div>
+				</div>
+				<div class="img2 ani pa" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s">
+<!--					<img th:src="@{indexPage/picture/school.jpg}" alt="">-->
+				</div>
+			</div>
+		</a>
+		<a class="swiper-slide slide1" href="">
+			<div class="w1200">
+				<div class="ani pa sl-left" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s">
+					<div class="pa t1">
+						上手简单
+					</div>
+					<div class="pa t2">
+						直截了当，通俗易懂的操作指南
+					</div>
+					<div class="pa t3">
+						帮助您快速掌握收发件技巧，玩转快递中心
+					</div>
+					<div class="pa btn">
+						立即免费开通
+					</div>
+				</div>
+				<div class="img2 ani pa" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s">
+<!--					<img th:src="@{indexPage/picture/wsc1.png}" alt="">-->
+				</div>
+			</div>
+		</a>
+		<a href="" class="swiper-slide slide4">
+			<div class="w1200">
+				<div class="ani pa sl-left" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s">
+					<div class="pa t1">
+						快递企业入驻
+					</div>
+					<div class="pa t2">
+						各大知名快递企业入驻平台
+					</div>
+					<div class="pa t3">
+						京东快递，中通快递，圆通快递，你想要的这里都有
+					</div>
+					<div class="pa btn">
+						立即免费开通
+					</div>
+				</div>
+				<div class="img2 ani pa" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s">
+					<img th:src="@{indexPage/picture/ysd1.png}" alt="">
+				</div>
+			</div>
+		</a>
+		<a href="" class="swiper-slide slide2">
+			<div class="w1200">
+				<div class="ani pa sl-left" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s">
+					<div class="pa t1">
+						信息直达
+					</div>
+					<div class="pa t2">
+						无收发延迟，秒通快递
+					</div>
+					<div class="pa t3">
+						收到即到货，能见到就是已签收
+					</div>
+					<div class="pa btn" style="width:220px;">
+						立即免费开通
+					</div>
+				</div>
+				<div class="img1 ani pa" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s">
+<!--					<img th:src="@{indexPage/picture/wx.png}" alt="">-->
+				</div>
+			</div>
+		</a>
+		<a href="" target="_blank" class="swiper-slide slide5">
+			<div class="w1200">
+				<div class="ani pa sl-left" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s">
+					<div class="pa t1">
+						学生管理
+					</div>
+					<div class="pa t2">
+						本校学生经营管理快递中心
+					</div>
+					<div class="pa t3">
+						平易近人的学生兼职管理快递中心
+					</div>
+					<div class="pa btn">
+						立即加入兼职
+					</div>
+				</div>
+				<div class="img3 ani pa" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" style="top:0;">
+<!--					<img th:src="@{indexPage/picture/ysd1.png}" alt="">-->
+				</div>
+			</div>
+		</a>
+	</div>
+	<!-- Add Pagination -->
+	<div class="swiper-pagination swiper-pagination-white"></div>
+	<div class="swiper-nav pa">
+		<ul class="w1200 clearfix">
+			<li id="g1" class="active">
+				<div class="icon">
+					<img th:src="@{indexPage/picture/icon3.png}" alt="">
+				</div>
+				<div class="info">
+					<div>广软快递中心</div>
+					<p>师生快递解决方案</p>
+				</div>
+			</li>
+			<li id="g2">
+				<div class="icon">
+					<img th:src="@{indexPage/picture/icon5.png}" alt="">
+				</div>
+				<div class="info">
+					<div>简单上手</div>
+					<p>无门槛管理系统</p>
+				</div>
+			</li>
+			<li id="g3">
+				<div class="icon">
+					<img th:src="@{indexPage/picture/icon4.png}" alt="">
+				</div>
+				<div class="info">
+					<div>名企入驻</div>
+					<p>各大知名企业入驻平台</p>
+				</div>
+			</li>
+			<li id="g4">
+				<div class="icon">
+					<img th:src="@{indexPage/picture/icon3.png}" alt="">
+				</div>
+				<div class="info">
+					<div>信息直达</div>
+					<p>高效率，低延迟</p>
+				</div>
+			</li>
+			<li id="g5">
+				<div class="icon">
+					<img th:src="@{indexPage/picture/icon5.png}" alt="">
+				</div>
+				<div class="info">
+					<div>学生管理</div>
+					<p>本校学生兼职管理</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<!--轮播结束-->
+<script th:src="@{indexPage/js/jquery.min.js}"></script>
+<script th:src="@{indexPage/js/swiper.min.js}" type="text/javascript" ></script>
+<script th:src="@{indexPage/js/swiper.animate.min.js}" type="text/javascript" ></script>
+<script th:src="@{indexPage/js/main.js}" type="text/javascript" ></script>
+
+</body>
+</html>

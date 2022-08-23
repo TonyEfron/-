@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ls.parcel.mapper.CompanyMapper">
+<!--    <select id="selectAllCompany" resultMap="companyList">-->
+<!--        select * from company-->
+<!--    </select>-->
+<!--    <resultMap id="companyList" type="company">-->
+<!--        <id property="comid" column="comid"/>-->
+<!--        <result property="comname" column="comname"/>-->
+<!--        <result property="comphone" column="comphone"/>-->
+<!--        <result property="comemail" column="comemail"/>-->
+<!--        </resultMap>-->
+</mapper>
+

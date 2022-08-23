@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+
+<!--图标库-->
+<link rel="stylesheet" type="text/css" th:href="@{~/stubackusercard/css/font-awesome-5.15.2.all.css}">
+
+<link rel="stylesheet" type="text/css" th:href="@{~/stubackusercard/css/tiktok.css}">
+
+</head>
+<body>
+
+<div class="card" th:fragment="usercard">
+	<div class="section">
+		<i class="message fas fa-envelope"></i> 
+		<i class="notif fas fa-bell"></i>
+		<div class="pic">
+			<img th:src="@{~/stubackusercard/images/zhien.jpg}" alt="图片加载错误！">
+		</div>
+		<div class="name" th:text="${loginStudent.stuname}"></div>
+		<div class="tag" th:text="${loginStudent.stuemail}"></div>
+	</div>
+
+	<div class="bottom-section">
+		<div class="social-media">
+<!--			<a href="#"><i class="fab fa-facebook"></i></a>-->
+<!--			<a href="#"><i class="fab fa-twitter"></i></a>-->
+<!--			<a href="#"><i class="fab fa-instagram"></i></a>-->
+		</div>
+
+	</div>
+</div>
+
+</body>
+</html>
